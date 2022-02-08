@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace ComputeMatrix.Test
 {
@@ -19,7 +20,7 @@ namespace ComputeMatrix.Test
         }
 
         [Test]
-        public void Post_Echo_Test_Success()
+        public async Task Post_Echo_Test_Success()
         {
             //Arrange
             var physicalFile = ToMockIFormFile(@".\matrix.csv");
@@ -32,13 +33,13 @@ namespace ComputeMatrix.Test
 
             //Act
             var computeController = new ComputeController(_mockComputeMatrixService.Object);
-            var result = computeController.Echo(physicalFile) as OkObjectResult;
+            var result = await computeController.Echo(physicalFile) as OkObjectResult;
 
             Assert.AreEqual(expected, result.Value);
         }
 
         [Test]
-        public void Post_Invert_Test_Success()
+        public async Task Post_Invert_Test_Success()
         {
             //Arrange
             var physicalFile = ToMockIFormFile(@".\matrix.csv");
@@ -51,13 +52,13 @@ namespace ComputeMatrix.Test
 
             //Act
             var computeController = new ComputeController(_mockComputeMatrixService.Object);
-            var result = computeController.Invert(physicalFile) as OkObjectResult;
+            var result = await computeController.Invert(physicalFile) as OkObjectResult;
 
             Assert.AreEqual(expected, result.Value);
         }
 
         [Test]
-        public void Post_Flatten_Test_Success()
+        public async Task Post_Flatten_Test_Success()
         {
             //Arrange
             var physicalFile = ToMockIFormFile(@".\matrix.csv");
@@ -70,13 +71,13 @@ namespace ComputeMatrix.Test
 
             //Act
             var computeController = new ComputeController(_mockComputeMatrixService.Object);
-            var result = computeController.Flatten(physicalFile) as OkObjectResult;
+            var result = await computeController.Flatten(physicalFile) as OkObjectResult;
 
             Assert.AreEqual(expected, result.Value);
         }
 
         [Test]
-        public void Post_Sum_Test_Success()
+        public async Task Post_Sum_Test_Success()
         {
             //Arrange
             var physicalFile = ToMockIFormFile(@".\matrix.csv");
@@ -89,14 +90,14 @@ namespace ComputeMatrix.Test
 
             //Act
             var computeController = new ComputeController(_mockComputeMatrixService.Object);
-            var result = computeController.Sum(physicalFile) as OkObjectResult;
+            var result = await computeController.Sum(physicalFile) as OkObjectResult;
 
             Assert.AreEqual(expected, result.Value);
         }
 
 
         [Test]
-        public void Post_Multiply_Test_Success()
+        public async Task Post_Multiply_Test_Success()
         {
             //Arrange
             var physicalFile = ToMockIFormFile(@".\matrix.csv");
@@ -109,7 +110,7 @@ namespace ComputeMatrix.Test
 
             //Act
             var computeController = new ComputeController(_mockComputeMatrixService.Object);
-            var result = computeController.Multiply(physicalFile) as OkObjectResult;
+            var result = await computeController.Multiply(physicalFile) as OkObjectResult;
 
             Assert.AreEqual(expected, result.Value);
         }
