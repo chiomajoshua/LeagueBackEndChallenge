@@ -37,6 +37,3 @@ API documentation is [here](https://{deployedLocation}/swagger) after running th
 - Open project with visual studio
 - If Nugets do not restore automatically, right-click on the solution folder and select Restore Nuget Packages
 - Build and Run the project.
-- Run `dotnet run` in command prompt
-
-    
