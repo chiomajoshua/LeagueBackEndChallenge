@@ -15,7 +15,7 @@
     
 
 #### API Documentation
-API documentation is [here](https://{deployedLocation}/swagger)
+API documentation is [here](https://{deployedLocation}/swagger) after running the application of visual studio 2022
 
 #### Technologies Used
 - dotnet 6
